@@ -1,8 +1,12 @@
+// // AuthForm.jsx
 // import React, { useState } from "react";
-// import { X } from "lucide-react"; // make sure you have lucide-react installed
+// import { X } from "lucide-react";
+// import { useNavigate } from "react-router-dom";
 
 // const AuthForm = ({ onClose, onLogin }) => {
-//   const [stage, setStage] = useState("signin"); // 'signin' or 'signup'
+//   const navigate = useNavigate();
+
+//   const [stage, setStage] = useState("signin"); // 'signin' -> 'signup'
 //   const [userType, setUserType] = useState("user");
 //   const [firstName, setFirstName] = useState("");
 //   const [lastName, setLastName] = useState("");
@@ -27,18 +31,23 @@
 //         return;
 //       }
 
-//       console.log("Signing in as", userType, {
-//         firstName,
-//         lastName,
-//         gender,
-//         email,
-//       });
-
-//       setStage("signup"); // Go to final login stage
+//       setStage("signup"); // move to final step
 //     } else {
-//       console.log("Final login for", userType, { email });
-//       alert("Logged in successfully!");
-//       onLogin();
+//       // FINAL LOGIN STEP
+//       alert(`Logged in successfully as ${userType}!`);
+
+//       // optional: still notify parent if it passed onLogin
+//       if (onLogin) onLogin(userType);
+
+//       // 🔁 Redirect based on role (no App.jsx changes needed)
+//       if (userType === "doctor") {
+//         navigate("/doctor");
+//       } else if (userType === "admin") {
+//         navigate("/admin");
+//       } else {
+//         // treat "user" as your public user interface (home)
+//         navigate("/");
+//       }
 //     }
 //   };
 
@@ -228,19 +237,27 @@ const AuthForm = ({ onClose, onLogin }) => {
 
       setStage("signup"); // move to final step
     } else {
-      // FINAL LOGIN STEP
+      // ✅ Save session data
+      const userData = {
+        userType,
+        firstName,
+        lastName,
+        gender,
+        email,
+      };
+
+      sessionStorage.setItem("authUser", JSON.stringify(userData));
+
       alert(`Logged in successfully as ${userType}!`);
 
-      // optional: still notify parent if it passed onLogin
       if (onLogin) onLogin(userType);
 
-      // 🔁 Redirect based on role (no App.jsx changes needed)
+      // 🔁 Redirect based on role
       if (userType === "doctor") {
         navigate("/doctor");
       } else if (userType === "admin") {
         navigate("/admin");
       } else {
-        // treat "user" as your public user interface (home)
         navigate("/");
       }
     }
