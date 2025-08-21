@@ -1,0 +1,93 @@
+/* Base */
+.footer {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Layout */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section block */
+.footer-section {
+  flex: 1;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+/* Lists */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Links and hover effects */
+.footer-link {
+  text-decoration: none;
+  color: #f1f5f9;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-section {
+    padding: 0 1rem;
+    min-width: 220px;
+  }
+
+  .footer-list li {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .footer-title {
+    font-size: 1.5rem;
+  }
+
+  .footer-list li {
+    font-size: 1.05rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+  }
+}
