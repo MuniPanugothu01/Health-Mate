@@ -473,7 +473,6 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
       </motion.nav>
-
       {/* Modal for Auth Form */}
       {showAuthForm && (
         <AuthForm onClose={toggleAuthForm} onLogin={handleLoginSuccess} />
