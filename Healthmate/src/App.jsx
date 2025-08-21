@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./pages/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
 import AboutUs from "./components/Abouts/AboutUs.jsx";
-import Services from "./components/Services/Services.jsx";
+import Services from "./components/services/Services.jsx";
 import ContactUs from "./components/ContactUs/ContactUs.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import LiveChat from "./components/LiveChat/LiveChat.jsx";
